@@ -4,8 +4,9 @@ import com.aragones.sergio.randomusersapp.model.User
 import com.aragones.sergio.randomusersapp.network.UserListService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
+import javax.inject.Inject
 
-class UserListRepository(
+class UserListRepository @Inject constructor(
     private val service: UserListService
 ) {
 

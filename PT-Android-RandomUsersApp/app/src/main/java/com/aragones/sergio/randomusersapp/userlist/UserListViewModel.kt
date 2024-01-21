@@ -5,9 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.liveData
 import com.aragones.sergio.randomusersapp.data.source.UserListRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.onEach
+import javax.inject.Inject
 
-class UserListViewModel(
+@HiltViewModel
+class UserListViewModel @Inject constructor(
     private val repository: UserListRepository
 ) : ViewModel() {
 

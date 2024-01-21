@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface UserApi {
 
-    @GET
+    @GET("api")
     suspend fun fetchAllUsers(): List<User>
 }
