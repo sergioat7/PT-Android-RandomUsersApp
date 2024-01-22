@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.findNavController
 import com.aragones.sergio.randomusersapp.R
 import com.aragones.sergio.randomusersapp.databinding.FragmentUserListBinding
 import com.google.android.material.snackbar.Snackbar
@@ -15,12 +17,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class UserListFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = UserListFragment()
-    }
-
     private lateinit var binding: FragmentUserListBinding
-    private val viewModel: UserListViewModel by viewModels()
+    private val viewModel: UserListViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,8 +31,11 @@ class UserListFragment : Fragment() {
             result.getOrNull()?.let { users ->
 
                 binding.recyclerViewUsers.apply {
-                    adapter = UserListAdapter(users) {
-                        //TODO: navigate to details
+                    adapter = UserListAdapter(users) { user ->
+
+                        val action =
+                            UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user.email)
+                        findNavController().navigate(action)
                     }
                 }
             } ?: run {
