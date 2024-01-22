@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">RandomUsersApp</string>
     <string name="contacts">Contacts</string>
+    <string name="generic_error">Something went wrong</string>
 </resources>
