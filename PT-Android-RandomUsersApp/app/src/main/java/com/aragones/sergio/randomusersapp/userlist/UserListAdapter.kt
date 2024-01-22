@@ -1,13 +1,10 @@
 package com.aragones.sergio.randomusersapp.userlist
 
-import android.graphics.drawable.BitmapDrawable
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import androidx.core.graphics.drawable.RoundedBitmapDrawable
-import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory
 import androidx.recyclerview.widget.RecyclerView
 import com.aragones.sergio.randomusersapp.databinding.ItemUserBinding
+import com.aragones.sergio.randomusersapp.extensions.getRoundImageView
 import com.aragones.sergio.randomusersapp.model.User
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -59,7 +56,7 @@ class UserListAdapter(
 
                     override fun onSuccess() {
                         binding.userImage.apply {
-                            this.setImageDrawable(this.getRoundImageView(10F))
+                            this.setImageDrawable(this.getRoundImageView(100F))
                         }
                     }
 
@@ -68,13 +65,4 @@ class UserListAdapter(
                 })
         }
     }
-}
-
-fun ImageView.getRoundImageView(radius: Float): RoundedBitmapDrawable {
-
-    val imageBitmap = (drawable as BitmapDrawable).bitmap
-    val imageDrawable = RoundedBitmapDrawableFactory.create(context.resources, imageBitmap)
-    imageDrawable.isCircular = true
-    imageDrawable.cornerRadius = radius
-    return imageDrawable
 }
