@@ -1,21 +1,19 @@
 package com.aragones.sergio.randomusersapp
 
-import androidx.test.ext.junit.rules.ActivityScenarioRule
-import androidx.test.ext.junit.runners.AndroidJUnit4
+import com.adevinta.android.barista.assertion.BaristaRecyclerViewAssertions
 import com.adevinta.android.barista.assertion.BaristaVisibilityAssertions
-import org.junit.Rule
+import com.aragones.sergio.randomusersapp.base.BaseUiTest
 import org.junit.Test
-import org.junit.runner.RunWith
 
-@RunWith(AndroidJUnit4::class)
-class UserListFeature {
-
-    val mActivityRule: ActivityScenarioRule<MainActivity> =
-        ActivityScenarioRule(MainActivity::class.java)
-        @Rule get
+class UserListFeature : BaseUiTest() {
 
     @Test
     fun displayScreenTitle() {
         BaristaVisibilityAssertions.assertDisplayed(R.string.contacts)
+    }
+
+    @Test
+    fun displaysListOfUsers() {
+        BaristaRecyclerViewAssertions.assertRecyclerViewItemCount(R.id.recycler_view_users, 50)
     }
 }

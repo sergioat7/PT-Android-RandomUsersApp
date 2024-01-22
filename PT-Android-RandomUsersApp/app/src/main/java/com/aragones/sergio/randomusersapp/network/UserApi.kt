@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface UserApi {
 
-    @GET("api")
+    @GET("api/?results=50")
     suspend fun fetchAllUsers(): ResultsRaw
 }

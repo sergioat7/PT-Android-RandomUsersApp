@@ -1,6 +1,7 @@
 package com.aragones.sergio.randomusersapp.network.di
 
 import com.aragones.sergio.randomusersapp.network.UserApi
+import com.jakewharton.espresso.OkHttp3IdlingResource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -10,6 +11,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
+private val client = OkHttpClient()
+val idlingResource = OkHttp3IdlingResource.create("okhttp", client)
+
 @Module
 @InstallIn(SingletonComponent::class)
 class UserListModule {
@@ -18,7 +22,7 @@ class UserListModule {
     @Singleton
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://randomuser.me/")
-        .client(OkHttpClient())
+        .client(client)
         .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
