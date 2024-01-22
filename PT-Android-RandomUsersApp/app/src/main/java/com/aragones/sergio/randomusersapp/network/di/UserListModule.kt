@@ -4,11 +4,10 @@ import com.aragones.sergio.randomusersapp.network.UserApi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.components.FragmentComponent
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 @Module
@@ -20,7 +19,7 @@ class UserListModule {
     fun provideRetrofit(): Retrofit = Retrofit.Builder()
         .baseUrl("https://randomuser.me/")
         .client(OkHttpClient())
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create())
         .build()
 
     @Provides
