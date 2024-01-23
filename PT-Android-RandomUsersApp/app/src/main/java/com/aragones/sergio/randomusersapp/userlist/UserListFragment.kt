@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.RecyclerView
 import com.aragones.sergio.randomusersapp.R
 import com.aragones.sergio.randomusersapp.databinding.FragmentUserListBinding
 import com.google.android.material.snackbar.Snackbar
@@ -40,6 +41,16 @@ class UserListFragment : Fragment() {
             viewModel.loadUsers()
         }
         binding.recyclerViewUsers.adapter = adapter
+        binding.recyclerViewUsers.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+
+            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(recyclerView, newState)
+
+                if (!recyclerView.canScrollVertically(1) && newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    viewModel.loadUsers()
+                }
+            }
+        })
 
         viewModel.loader.observe(this as LifecycleOwner) { isLoading ->
             binding.swipeRefreshLayoutUsers.isRefreshing = isLoading
