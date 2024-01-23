@@ -48,6 +48,13 @@ class UserListAdapter(
         notifyItemInserted(index)
     }
 
+    fun resetUsers() {
+
+        val itemCount = users.size
+        users = listOf()
+        notifyItemRangeRemoved(0, itemCount)
+    }
+
     inner class UserListViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 

@@ -47,4 +47,11 @@ class UserListViewModel @Inject constructor(
                 }
             }
     }
+
+    fun reloadData() {
+
+        page = 1
+        _users.postValue(mutableListOf())
+        _newUsers.postValue(mutableListOf())
+    }
 }

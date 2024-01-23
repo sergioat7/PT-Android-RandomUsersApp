@@ -33,7 +33,17 @@ class UserListFragment : Fragment() {
                 UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user.email)
             findNavController().navigate(action)
         }
+        binding.swipeRefreshLayoutUsers.setOnRefreshListener {
+
+            adapter.resetUsers()
+            viewModel.reloadData()
+            viewModel.loadUsers()
+        }
         binding.recyclerViewUsers.adapter = adapter
+
+        viewModel.loader.observe(this as LifecycleOwner) { isLoading ->
+            binding.swipeRefreshLayoutUsers.isRefreshing = isLoading
+        }
 
         viewModel.newUsers.observe(this as LifecycleOwner) {
             adapter.addUsers(it)
