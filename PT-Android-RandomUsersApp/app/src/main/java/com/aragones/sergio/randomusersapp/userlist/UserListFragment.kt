@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.LifecycleOwner
@@ -25,6 +26,13 @@ class UserListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        (activity as? AppCompatActivity)?.apply {
+            supportActionBar?.apply {
+                title = getString(R.string.contacts)
+                setDisplayHomeAsUpEnabled(false)
+            }
+        }
 
         binding = FragmentUserListBinding.inflate(inflater, container, false)
 
@@ -69,6 +77,8 @@ class UserListFragment : Fragment() {
             ).show()
         }
 
+        adapter.resetUsers()
+        viewModel.reloadData()
         viewModel.loadUsers()
 
         return binding.root
