@@ -4,6 +4,7 @@ import com.aragones.sergio.randomusersapp.model.InfoRaw
 import com.aragones.sergio.randomusersapp.model.ResultsRaw
 import com.aragones.sergio.randomusersapp.model.UserRaw
 import com.aragones.sergio.randomusersapp.utils.BaseUnitTest
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.times
 import com.nhaarman.mockitokotlin2.verify
@@ -29,19 +30,19 @@ class UserListServiceTest : BaseUnitTest() {
     @Test
     fun `GIVEN success response WHEN fetch users THEN do expected call`() = runTest {
 
-        whenever(api.fetchAllUsers()).thenReturn(expected)
+        whenever(api.fetchAllUsers(any(), any(), any())).thenReturn(expected)
 
-        sut.fetchUserList().first()
+        sut.fetchUserList(1, 1).first()
 
-        verify(api, times(1)).fetchAllUsers()
+        verify(api, times(1)).fetchAllUsers(any(), any(), any())
     }
 
     @Test
     fun `GIVEN success response WHEN fetch users THEN emit users from api`() = runTest {
 
-        whenever(api.fetchAllUsers()).thenReturn(expected)
+        whenever(api.fetchAllUsers(any(), any(), any())).thenReturn(expected)
 
-        val result = sut.fetchUserList()
+        val result = sut.fetchUserList(1, 1)
 
         assertEquals(users, result.first().getOrNull())
     }
@@ -49,9 +50,9 @@ class UserListServiceTest : BaseUnitTest() {
     @Test
     fun `GIVEN network error WHEN fetch users THEN emit error`() = runTest {
 
-        whenever(api.fetchAllUsers()).thenThrow(RuntimeException("Backend error"))
+        whenever(api.fetchAllUsers(any(), any(), any())).thenThrow(RuntimeException("Backend error"))
 
-        val result = sut.fetchUserList()
+        val result = sut.fetchUserList(1, 1)
 
         assertEquals("Backend error", result.first().exceptionOrNull()?.message)
     }

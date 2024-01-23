@@ -2,9 +2,14 @@ package com.aragones.sergio.randomusersapp.network
 
 import com.aragones.sergio.randomusersapp.model.ResultsRaw
 import retrofit2.http.GET
+import retrofit2.http.Query
 
 interface UserApi {
 
-    @GET("api/?results=50")
-    suspend fun fetchAllUsers(): ResultsRaw
+    @GET("api/")
+    suspend fun fetchAllUsers(
+        @Query("page") page: Int,
+        @Query("results") results: Int,
+        @Query("seed") seed: String = "randomusersapp"
+    ): ResultsRaw
 }

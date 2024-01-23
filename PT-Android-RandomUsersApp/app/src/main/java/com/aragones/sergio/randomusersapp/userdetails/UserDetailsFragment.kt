@@ -28,7 +28,7 @@ class UserDetailsFragment : Fragment() {
         binding = FragmentUserDetailsBinding.inflate(inflater, container, false)
 
         val email = args.userEmail
-        val user = viewModel.users.value?.getOrNull()?.firstOrNull { it.email == email }
+        val user = viewModel.users.value?.firstOrNull { it.email == email }
 
         return binding.root
     }

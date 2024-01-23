@@ -10,9 +10,9 @@ class UserListService @Inject constructor(
     private val api: UserApi
 ) {
 
-    fun fetchUserList(): Flow<Result<List<UserRaw>>> {
+    fun fetchUserList(page: Int, results: Int): Flow<Result<List<UserRaw>>> {
         return flow {
-            emit(Result.success(api.fetchAllUsers().results))
+            emit(Result.success(api.fetchAllUsers(page, results).results))
         }.catch {
             emit(Result.failure(it))
         }

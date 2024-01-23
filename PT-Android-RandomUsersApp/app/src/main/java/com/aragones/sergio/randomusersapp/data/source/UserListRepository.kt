@@ -12,8 +12,8 @@ class UserListRepository @Inject constructor(
     private val mapper: UserListMapper
 ) {
 
-    fun getUsers(): Flow<Result<List<User>>> =
-        service.fetchUserList().map {
+    fun getUsers(page: Int, results: Int): Flow<Result<List<User>>> =
+        service.fetchUserList(page, results).map {
 
             if (it.isSuccess) {
                 Result.success(mapper(it.getOrNull() ?: listOf()))

@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.aragones.sergio.randomusersapp.R
 import com.aragones.sergio.randomusersapp.databinding.FragmentUserListBinding
 import com.google.android.material.snackbar.Snackbar
@@ -19,6 +18,7 @@ class UserListFragment : Fragment() {
 
     private lateinit var binding: FragmentUserListBinding
     private val viewModel: UserListViewModel by activityViewModels()
+    private lateinit var adapter: UserListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -27,26 +27,28 @@ class UserListFragment : Fragment() {
 
         binding = FragmentUserListBinding.inflate(inflater, container, false)
 
-        viewModel.users.observe(this as LifecycleOwner) { result ->
-            result.getOrNull()?.let { users ->
+        adapter = UserListAdapter(listOf()) { user ->
 
-                binding.recyclerViewUsers.apply {
-                    adapter = UserListAdapter(users) { user ->
-
-                        val action =
-                            UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user.email)
-                        findNavController().navigate(action)
-                    }
-                }
-            } ?: run {
-
-                Snackbar.make(
-                    binding.root,
-                    R.string.generic_error,
-                    Snackbar.LENGTH_LONG
-                ).show()
-            }
+            val action =
+                UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(user.email)
+            findNavController().navigate(action)
         }
+        binding.recyclerViewUsers.adapter = adapter
+
+        viewModel.newUsers.observe(this as LifecycleOwner) {
+            adapter.addUsers(it)
+        }
+
+        viewModel.error.observe(this as LifecycleOwner) { error ->
+
+            Snackbar.make(
+                binding.root,
+                error?.message ?: getString(R.string.generic_error),
+                Snackbar.LENGTH_LONG
+            ).show()
+        }
+
+        viewModel.loadUsers()
 
         return binding.root
     }
