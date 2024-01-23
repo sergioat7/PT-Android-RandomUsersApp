@@ -44,7 +44,7 @@ class UserListAdapter(
         val values = this.users.toMutableList()
         val index = values.size
         values.addAll(newUsers)
-        this.users = values
+        this.users = values.distinct()
         notifyItemInserted(index)
     }
 
