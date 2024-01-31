@@ -1,6 +1,6 @@
 # PT-Android-RandomUsersApp
 
-RandomUsersApp is a simple Master-Detail Android app for a technical code test. It fetchs users from Random User Generator API (https://randomuser.me/) and list them in a screen, without possibility to see details of every item.
+RandomUsersApp is a simple Master-Detail Android app for a technical code test. It fetchs users from Random User Generator API (https://randomuser.me/) and list them in a screen, with the possibility to see details of every item.
 
 ## Project Structure
 
