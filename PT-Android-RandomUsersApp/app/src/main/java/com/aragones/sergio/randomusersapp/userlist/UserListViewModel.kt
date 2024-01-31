@@ -28,6 +28,7 @@ class UserListViewModel @Inject constructor(
     val users: LiveData<MutableList<User>> = _users
     val newUsers: LiveData<List<User>> = _newUsers
     val error: LiveData<Throwable?> = _error
+    var query = ""
 
     fun loadUsers() = viewModelScope.launch {
 
@@ -37,7 +38,13 @@ class UserListViewModel @Inject constructor(
             .firstOrNull()?.apply {
                 if (isSuccess) {
 
-                    _newUsers.postValue(getOrNull() ?: listOf())
+                    val result = getOrNull() ?: listOf()
+                    _newUsers.postValue(
+                        result.filter {
+                            it.name.contains(query, true)
+                                    || it.email.contains(query, true)
+                        }
+                    )
                     val value = _users.value ?: mutableListOf()
                     value.addAll(getOrNull() ?: listOf())
                     _users.postValue(value)
@@ -53,5 +60,9 @@ class UserListViewModel @Inject constructor(
         page = 1
         _users.postValue(mutableListOf())
         _newUsers.postValue(mutableListOf())
+    }
+
+    fun setSearch(query: String) {
+        this.query = query
     }
 }
