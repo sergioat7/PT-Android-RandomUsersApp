@@ -3,7 +3,7 @@ package com.aragones.sergio.randomusersapp.network
 import com.aragones.sergio.randomusersapp.extensions.toDate
 import com.aragones.sergio.randomusersapp.model.Gender
 import com.aragones.sergio.randomusersapp.model.User
-import com.aragones.sergio.randomusersapp.model.UserRaw
+import com.aragones.sergio.domain.UserRaw
 import javax.inject.Inject
 
 class UserListMapper @Inject constructor() : Function1<List<UserRaw>, List<User>> {

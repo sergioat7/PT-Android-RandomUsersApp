@@ -1,6 +1,6 @@
 package com.aragones.sergio.randomusersapp.network
 
-import com.aragones.sergio.randomusersapp.model.UserRaw
+import com.aragones.sergio.domain.UserRaw
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

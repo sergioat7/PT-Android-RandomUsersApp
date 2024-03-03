@@ -1,6 +1,6 @@
 package com.aragones.sergio.randomusersapp.network
 
-import com.aragones.sergio.randomusersapp.model.ResultsRaw
+import com.aragones.sergio.domain.ResultsRaw
 import retrofit2.http.GET
 import retrofit2.http.Query
 

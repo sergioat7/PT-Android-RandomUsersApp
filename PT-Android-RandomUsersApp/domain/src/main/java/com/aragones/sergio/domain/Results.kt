@@ -1,4 +1,4 @@
-package com.aragones.sergio.randomusersapp.model
+package com.aragones.sergio.domain
 
 import com.squareup.moshi.JsonClass
 
