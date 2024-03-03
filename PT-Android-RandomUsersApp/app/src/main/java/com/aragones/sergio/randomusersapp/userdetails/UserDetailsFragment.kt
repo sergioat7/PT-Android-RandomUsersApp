@@ -28,7 +28,7 @@ class UserDetailsFragment : Fragment() {
     private lateinit var binding: FragmentUserDetailsBinding
     private val viewModel: UserListViewModel by activityViewModels()
     private val args: UserDetailsFragmentArgs by navArgs()
-    private lateinit var user: com.aragones.sergio.data.User
+    private lateinit var user: User
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +43,10 @@ class UserDetailsFragment : Fragment() {
         } ?: run {
             //TODO: show error
             findNavController().popBackStack()
+        }
+
+        if (!this::user.isInitialized) {
+            return binding.root
         }
 
         (activity as? AppCompatActivity)?.apply {
@@ -93,9 +97,9 @@ class UserDetailsFragment : Fragment() {
         binding.contentUserInfoGender.textViewValue.text =
             getString(
                 when (user.gender) {
-                    com.aragones.sergio.data.Gender.MALE -> R.string.male
-                    com.aragones.sergio.data.Gender.FEMALE -> R.string.female
-                    com.aragones.sergio.data.Gender.OTHER -> R.string.other
+                    Gender.MALE -> R.string.male
+                    Gender.FEMALE -> R.string.female
+                    Gender.OTHER -> R.string.other
                 }
             )
         binding.contentUserInfoDate.textViewHeader.text = getString(R.string.registration_date)

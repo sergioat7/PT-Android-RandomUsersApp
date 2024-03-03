@@ -64,8 +64,8 @@ dependencies {
     implementation 'com.jakewharton.espresso:okhttp3-idling-resource:1.0.0'
 
     //Jetpack navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:2.7.6"
-    implementation "androidx.navigation:navigation-ui-ktx:2.7.6"
+    implementation "androidx.navigation:navigation-fragment-ktx:2.7.7"
+    implementation "androidx.navigation:navigation-ui-ktx:2.7.7"
 
     //Unit test
     testImplementation 'junit:junit:4.13.2'

@@ -10,8 +10,8 @@ import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 
 class UserListAdapter(
-    private var users: List<com.aragones.sergio.data.User>,
-    private val listener: (com.aragones.sergio.data.User) -> Unit
+    private var users: List<User>,
+    private val listener: (User) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListViewHolder {
@@ -39,7 +39,7 @@ class UserListAdapter(
         }
     }
 
-    fun addUsers(newUsers: List<com.aragones.sergio.data.User>) {
+    fun addUsers(newUsers: List<User>) {
 
         val values = this.users.toMutableList()
         val index = values.size
@@ -58,7 +58,7 @@ class UserListAdapter(
     inner class UserListViewHolder(private val binding: ItemUserBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(user: com.aragones.sergio.data.User) {
+        fun bind(user: User) {
 
             binding.textViewName.text = user.getFullName()
             binding.textViewEmail.text = user.email
