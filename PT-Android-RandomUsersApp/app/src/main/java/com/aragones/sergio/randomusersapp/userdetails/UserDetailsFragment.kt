@@ -46,7 +46,7 @@ class UserDetailsFragment : Fragment() {
 
         (activity as? AppCompatActivity)?.apply {
             supportActionBar?.apply {
-                title = user?.getFullName()
+                title = user.getFullName()
                 setDisplayHomeAsUpEnabled(true)
                 setHomeButtonEnabled(true)
             }
@@ -90,7 +90,13 @@ class UserDetailsFragment : Fragment() {
         binding.contentUserInfoEmail.textViewValue.text = user.email
         binding.contentUserInfoGender.textViewHeader.text = getString(R.string.gender)
         binding.contentUserInfoGender.textViewValue.text =
-            getString(user.getStringResourceForGender())
+            getString(
+                when (user.gender) {
+                    com.aragones.sergio.data.Gender.MALE -> R.string.male
+                    com.aragones.sergio.data.Gender.FEMALE -> R.string.female
+                    com.aragones.sergio.data.Gender.OTHER -> R.string.other
+                }
+            )
         binding.contentUserInfoDate.textViewHeader.text = getString(R.string.registration_date)
         binding.contentUserInfoDate.textViewValue.text =
             user.registrationDate.toString(format = "dd/MM/yyyy")

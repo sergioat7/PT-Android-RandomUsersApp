@@ -19,7 +19,20 @@ import org.junit.Test
 class UserListViewModelShould : BaseUnitTest() {
 
     private val repository: UserListRepository = mock()
-    private val users: List<User> = listOf(mock(), mock(), mock())
+    private val users: List<com.aragones.sergio.data.User> = listOf(
+        mock<com.aragones.sergio.data.User>().also {
+            whenever(it.name).thenReturn("")
+            whenever(it.email).thenReturn("")
+        },
+        mock<com.aragones.sergio.data.User>().also {
+            whenever(it.name).thenReturn("")
+            whenever(it.email).thenReturn("")
+        },
+        mock<com.aragones.sergio.data.User>().also {
+            whenever(it.name).thenReturn("")
+            whenever(it.email).thenReturn("")
+        }
+    )
     private val expected = Result.success(users)
     private val exception = RuntimeException("Something went wrong")
     private lateinit var sut: UserListViewModel
