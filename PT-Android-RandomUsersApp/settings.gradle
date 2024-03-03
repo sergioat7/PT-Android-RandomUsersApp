@@ -1,3 +1,4 @@
 rootProject.name = "RandomUsersApp"
 include ':app'
 include ':domain'
+include ':core:network'

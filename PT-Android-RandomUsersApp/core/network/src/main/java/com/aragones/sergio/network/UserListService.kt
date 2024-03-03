@@ -1,6 +1,7 @@
-package com.aragones.sergio.randomusersapp.network
+package com.aragones.sergio.network
 
 import com.aragones.sergio.domain.UserRaw
+import com.aragones.sergio.network.UserApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow

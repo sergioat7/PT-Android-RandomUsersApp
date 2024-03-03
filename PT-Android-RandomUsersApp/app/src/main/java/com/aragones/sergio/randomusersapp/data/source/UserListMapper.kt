@@ -1,4 +1,4 @@
-package com.aragones.sergio.randomusersapp.network
+package com.aragones.sergio.randomusersapp.data.source
 
 import com.aragones.sergio.randomusersapp.extensions.toDate
 import com.aragones.sergio.randomusersapp.model.Gender

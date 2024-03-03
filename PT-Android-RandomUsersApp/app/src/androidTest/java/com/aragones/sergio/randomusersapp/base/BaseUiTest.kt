@@ -7,7 +7,7 @@ import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.aragones.sergio.randomusersapp.MainActivity
-import com.aragones.sergio.randomusersapp.network.di.idlingResource
+import com.aragones.sergio.network.di.idlingResource
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import org.hamcrest.Description
 import org.hamcrest.Matcher

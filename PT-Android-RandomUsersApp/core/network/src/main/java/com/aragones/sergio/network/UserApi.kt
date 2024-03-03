@@ -1,4 +1,4 @@
-package com.aragones.sergio.randomusersapp.network
+package com.aragones.sergio.network
 
 import com.aragones.sergio.domain.ResultsRaw
 import retrofit2.http.GET

@@ -1,6 +1,6 @@
-package com.aragones.sergio.randomusersapp.network.di
+package com.aragones.sergio.network.di
 
-import com.aragones.sergio.randomusersapp.network.UserApi
+import com.aragones.sergio.network.UserApi
 import com.jakewharton.espresso.OkHttp3IdlingResource
 import dagger.Module
 import dagger.Provides

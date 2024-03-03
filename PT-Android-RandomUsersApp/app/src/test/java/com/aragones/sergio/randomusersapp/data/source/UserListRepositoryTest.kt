@@ -2,8 +2,7 @@ package com.aragones.sergio.randomusersapp.data.source
 
 import com.aragones.sergio.randomusersapp.model.User
 import com.aragones.sergio.domain.UserRaw
-import com.aragones.sergio.randomusersapp.network.UserListMapper
-import com.aragones.sergio.randomusersapp.network.UserListService
+import com.aragones.sergio.network.UserListService
 import com.aragones.sergio.randomusersapp.utils.BaseUnitTest
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
