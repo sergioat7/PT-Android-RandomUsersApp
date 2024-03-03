@@ -1,7 +1,6 @@
 package com.aragones.sergio.randomusersapp.userlist
 
-import com.aragones.sergio.randomusersapp.data.source.UserListRepository
-import com.aragones.sergio.randomusersapp.model.User
+import com.aragones.sergio.data.UserListRepository
 import com.aragones.sergio.randomusersapp.utils.BaseUnitTest
 import com.aragones.sergio.randomusersapp.utils.captureValues
 import com.aragones.sergio.randomusersapp.utils.getValueForTest

@@ -1,8 +1,5 @@
-package com.aragones.sergio.randomusersapp.data.source
+package com.aragones.sergio.data
 
-import com.aragones.sergio.randomusersapp.extensions.toDate
-import com.aragones.sergio.randomusersapp.model.Gender
-import com.aragones.sergio.randomusersapp.model.User
 import com.aragones.sergio.domain.UserRaw
 import javax.inject.Inject
 

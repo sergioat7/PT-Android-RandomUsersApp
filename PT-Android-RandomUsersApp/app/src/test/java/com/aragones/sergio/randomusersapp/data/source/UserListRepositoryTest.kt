@@ -1,6 +1,7 @@
 package com.aragones.sergio.randomusersapp.data.source
 
-import com.aragones.sergio.randomusersapp.model.User
+import com.aragones.sergio.data.UserListMapper
+import com.aragones.sergio.data.UserListRepository
 import com.aragones.sergio.domain.UserRaw
 import com.aragones.sergio.network.UserListService
 import com.aragones.sergio.randomusersapp.utils.BaseUnitTest
@@ -20,7 +21,7 @@ class UserListRepositoryTest : BaseUnitTest() {
 
     private val service: UserListService = mock()
     private val mapper: UserListMapper = mock()
-    private val users: List<User> = mock()
+    private val users: List<com.aragones.sergio.data.User> = mock()
     private val usersRaw: List<UserRaw> = mock()
     private val exception = RuntimeException("Something went wrong")
     private lateinit var sut: UserListRepository

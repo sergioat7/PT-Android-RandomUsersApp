@@ -1,4 +1,4 @@
-package com.aragones.sergio.randomusersapp.extensions
+package com.aragones.sergio.data
 
 import android.util.Log
 import java.text.SimpleDateFormat

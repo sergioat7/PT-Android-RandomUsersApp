@@ -13,11 +13,12 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.aragones.sergio.data.Gender
+import com.aragones.sergio.data.User
 import com.aragones.sergio.randomusersapp.R
 import com.aragones.sergio.randomusersapp.databinding.FragmentUserDetailsBinding
 import com.aragones.sergio.randomusersapp.extensions.getRoundImageView
 import com.aragones.sergio.randomusersapp.extensions.toString
-import com.aragones.sergio.randomusersapp.model.User
 import com.aragones.sergio.randomusersapp.userlist.UserListViewModel
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -27,7 +28,7 @@ class UserDetailsFragment : Fragment() {
     private lateinit var binding: FragmentUserDetailsBinding
     private val viewModel: UserListViewModel by activityViewModels()
     private val args: UserDetailsFragmentArgs by navArgs()
-    private lateinit var user: User
+    private lateinit var user: com.aragones.sergio.data.User
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

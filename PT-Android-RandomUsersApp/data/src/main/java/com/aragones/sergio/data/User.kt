@@ -1,6 +1,5 @@
-package com.aragones.sergio.randomusersapp.model
+package com.aragones.sergio.data
 
-import com.aragones.sergio.randomusersapp.R
 import java.util.Date
 
 data class User(
@@ -15,15 +14,6 @@ data class User(
 
     fun getFullName(): String {
         return "$name $surname"
-    }
-
-    fun getStringResourceForGender(): Int {
-
-        return when (gender) {
-            Gender.MALE -> R.string.male
-            Gender.FEMALE -> R.string.female
-            Gender.OTHER -> R.string.other
-        }
     }
 }
 

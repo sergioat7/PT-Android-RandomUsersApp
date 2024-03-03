@@ -1,6 +1,5 @@
-package com.aragones.sergio.randomusersapp.data.source
+package com.aragones.sergio.data
 
-import com.aragones.sergio.randomusersapp.model.User
 import com.aragones.sergio.network.UserListService
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map

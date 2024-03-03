@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.aragones.sergio.randomusersapp.data.source.UserListRepository
-import com.aragones.sergio.randomusersapp.model.User
+import com.aragones.sergio.data.UserListRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.onEach
@@ -18,15 +17,15 @@ class UserListViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _loader = MutableLiveData<Boolean>()
-    private val _users = MutableLiveData<MutableList<User>>(mutableListOf())
-    private val _newUsers = MutableLiveData<List<User>>(listOf())
+    private val _users = MutableLiveData<MutableList<com.aragones.sergio.data.User>>(mutableListOf())
+    private val _newUsers = MutableLiveData<List<com.aragones.sergio.data.User>>(listOf())
     private val _error = MutableLiveData<Throwable?>()
     private var page = 1
     private val results = 50
 
     val loader: LiveData<Boolean> = _loader
-    val users: LiveData<MutableList<User>> = _users
-    val newUsers: LiveData<List<User>> = _newUsers
+    val users: LiveData<MutableList<com.aragones.sergio.data.User>> = _users
+    val newUsers: LiveData<List<com.aragones.sergio.data.User>> = _newUsers
     val error: LiveData<Throwable?> = _error
     var query = ""
 
