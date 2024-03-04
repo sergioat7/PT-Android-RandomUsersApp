@@ -5,7 +5,6 @@ plugins {
 
 dependencies {
 
-    //Moshi
-    implementation "com.squareup.moshi:moshi:1.15.0"
-    kapt "com.squareup.moshi:moshi-kotlin-codegen:1.15.0"
+    implementation libs.moshi
+    kapt libs.moshi.kotlin.codegen
 }

@@ -1,0 +1,69 @@
+[versions]
+core-ktx = "1.12.0"
+appcompat = "1.6.1"
+constraint-layout = "2.1.4"
+fragment = "1.6.2"
+material = "1.11.0"
+lifecycle = "2.7.0"
+navigation = "2.7.7"
+moshi = "1.15.0"
+retrofit = "2.9.0"
+picasso = "2.71828"
+hilt = "2.47"
+junit = "4.13.2"
+coroutines-test = "1.7.1"
+androidx-test = "2.2.0"
+mockitokotlin2 = "2.1.0"
+mockito-inline = "2.21.0"
+mockito-core = "4.3.1"
+androidx-test-ext-junit = "1.1.5"
+espresso-core = "3.5.1"
+barista = "4.2.0"
+okhttp3-idling-resource = "1.0.0"
+swiperefreshlayout = "1.1.0"
+
+[libraries]
+#Android
+androidx-swiperefreshlayout = { group = "androidx.swiperefreshlayout", name = "swiperefreshlayout", version.ref = "swiperefreshlayout" }
+core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraint-layout" }
+fragment-ktx = { group = "androidx.fragment", name = "fragment-ktx", version.ref = "fragment" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle" }
+
+#Navigation
+navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
+navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
+
+#Moshi
+moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+moshi-kotlin-codegen = { group = "com.squareup.moshi", name = "moshi-kotlin-codegen", version.ref = "moshi" }
+
+#Retrofit
+retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "retrofit" }
+retrofit-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "retrofit" }
+
+#Picasso
+picasso = { group = "com.squareup.picasso", name = "picasso", version.ref = "picasso" }
+
+#Hilt
+hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "hilt" }
+hilt-android-compiler = { group = "com.google.dagger", name = "hilt-android-compiler", version.ref = "hilt" }
+
+#Tests
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "coroutines-test" }
+androidx-test = { group = "androidx.arch.core", name = "core-testing", version.ref = "androidx-test" }
+mockitokotlin2 = { group = "com.nhaarman.mockitokotlin2", name = "mockito-kotlin", version.ref = "mockitokotlin2" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito-inline" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito-core" }
+
+#Android tests
+androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+barista = { group = "com.adevinta.android", name = "barista", version.ref = "barista" }
+okhttp3-idling-resource = { group = "com.jakewharton.espresso", name = "okhttp3-idling-resource", version.ref = "okhttp3-idling-resource" }
+
+[bundles]
+navigation = ["navigation-fragment-ktx", "navigation-ui-ktx"]
