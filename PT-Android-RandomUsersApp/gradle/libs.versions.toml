@@ -20,7 +20,7 @@ androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 barista = "4.2.0"
 okhttp3-idling-resource = "1.0.0"
-agp = "8.2.1"
+agp = "8.2.2"
 kotlin = "1.9.22"
 swiperefreshlayout = "1.1.0"
 
