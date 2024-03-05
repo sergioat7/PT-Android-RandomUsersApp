@@ -54,32 +54,32 @@ dependencies {
     implementation(project(":domain"))
 
     implementation(libs.core.ktx)
-            implementation(libs.appcompat)
-            implementation(libs.material)
-            implementation(libs.constraintlayout)
-            implementation(libs.fragment.ktx)
-            implementation(libs.lifecycle.livedata.ktx)
-            implementation(libs.androidx.swiperefreshlayout)
+    implementation(libs.appcompat)
+    implementation(libs.material)
+    implementation(libs.constraintlayout)
+    implementation(libs.fragment.ktx)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.androidx.swiperefreshlayout)
 
-            implementation(libs.hilt.android)
-            kapt(libs.hilt.android.compiler)
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
-            implementation(libs.picasso)
+    implementation(libs.picasso)
 
-            implementation(libs.okhttp3.idling.resource)
+    implementation(libs.okhttp3.idling.resource)
 
-            implementation(libs.bundles.navigation)
+    implementation(libs.bundles.navigation)
 
-            testImplementation(libs.junit)
-            testImplementation(libs.coroutines.test)
-            testImplementation(libs.androidx.test)
-            testImplementation(libs.mockitokotlin2)
-            testImplementation(libs.mockito.inline)
-            testImplementation(libs.mockito.core)
+    testImplementation(libs.junit)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.androidx.test)
+    testImplementation(libs.mockitokotlin2)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.mockito.core)
 
-            androidTestImplementation(libs.androidx.test.ext.junit)
-            androidTestImplementation(libs.espresso.core)
-            androidTestImplementation(libs.barista) {
-                exclude(group = "org.jetbrains.kotlin") // Only if you already use Kotlin in your project
-            }
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.barista) {
+        exclude(group = "org.jetbrains.kotlin") // Only if you already use Kotlin in your project
+    }
 }
