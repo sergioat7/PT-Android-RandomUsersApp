@@ -1,6 +1,6 @@
 plugins {
-    id("org.jetbrains.kotlin.jvm")
-    id("kotlin-kapt")
+    kotlin("jvm")
+    kotlin("kapt")
 }
 
 dependencies {
