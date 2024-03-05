@@ -77,6 +77,8 @@ dependencies {
     testImplementation(libs.mockito.inline)
     testImplementation(libs.mockito.core)
 
+    debugImplementation(libs.leak.canary)
+
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
     androidTestImplementation(libs.barista) {
